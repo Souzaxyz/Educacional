@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Academico.Models.Departamento>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Departamentos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .action-links {
+            display: flex;
+        }
+        .action-links a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Lista de Departamentos</h2>
+        <p>
+            <a href="@Url.Action("Create")">Registrar Departamento</a>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Departamento ID</th>
+                    <th>Nome</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.DepartamentoID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                        <td class="action-links">
+                            <a href="@Url.Action("Edit", new { id = item.DepartamentoID })">Editar</a>
+                            <a href="@Url.Action("Details", new { id = item.DepartamentoID })">Detalhes</a>
+                            <a href="@Url.Action("Delete", new { id = item.DepartamentoID })">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

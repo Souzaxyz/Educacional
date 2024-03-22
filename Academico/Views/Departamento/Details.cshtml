@@ -1,0 +1,81 @@
+﻿@model Academico.Models.Departamento
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalhes do Departamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-block: solid;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h4 {
+            font-size: 24px;
+            margin: 0 0 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        dl {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 15px;
+        }
+
+        dt {
+            font-weight: bold;
+            padding-right: 15px;
+        }
+
+        .action-links {
+            margin-top: 20px;
+        }
+
+            .action-links a {
+                text-decoration: none;
+                color: #007bff;
+                margin-right: 20px;
+                font-weight: bold;
+            }
+
+        .back-link {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4>Detalhes do Departamento</h4>
+        <dl>
+            <dt>ID do Departamento:</dt>
+            <dd>@Html.DisplayFor(model => model.DepartamentoID)</dd>
+
+            <dt>Nome:</dt>
+            <dd>@Html.DisplayFor(model => model.Nome)</dd>
+        </dl>
+
+        <div class="action-links">
+            <a href="@Url.Action("Edit", new { id = Model.DepartamentoID })">Editar</a>
+            <a asp-action="Index">Voltar à Lista</a>
+        </div>
+    </div>
+</body>
+</html>
